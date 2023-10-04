@@ -1,3 +1,4 @@
 req 0
 push 0 char a
+push 0 char b
 print 0

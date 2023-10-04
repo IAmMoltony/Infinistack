@@ -29,5 +29,18 @@ namespace Infinistack
         {
             return "Type: " + type.ToString() + " char value: '" + charValue.ToString() + "' num value: " + numValue.ToString();
         }
+
+        public void Write()
+        {
+            switch (type)
+            {
+                case Type.Char:
+                    Console.Write(charValue);
+                    break;
+                case Type.Number:
+                    Console.Write(numValue);
+                    break;
+            }
+        }
     }
 }

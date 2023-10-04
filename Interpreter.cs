@@ -92,6 +92,26 @@ namespace Infinistack
 
                         break;
                     }
+                    case "print":
+                    {
+                        uint stackNum = 0;
+                        try
+                        {
+                            stackNum = Convert.ToUInt32(split[1]);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}");
+                            return;
+                        }
+
+                        // pop everything off the stack and print all of that
+                        for (; stacks[stackNum].Count != 0;)
+                        {
+                            stacks[stackNum].Pop().Write();
+                        }
+                        break;
+                    }
                     default:
                     {
                         // invalid keyword
