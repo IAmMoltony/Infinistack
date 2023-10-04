@@ -1,1 +1,3 @@
-req g
+req 0
+push 0 char a
+print 0

@@ -24,5 +24,10 @@ namespace Infinistack
             type = Type.Number;
             numValue = value;
         }
+
+        public override string ToString()
+        {
+            return "Type: " + type.ToString() + " char value: '" + charValue.ToString() + "' num value: " + numValue.ToString();
+        }
     }
 }
