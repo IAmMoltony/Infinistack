@@ -13,6 +13,12 @@ namespace Infinistack
 
             foreach (string line in lines)
             {
+                if (string.IsNullOrEmpty(line) || string.IsNullOrWhiteSpace(line))
+                {
+                    // line is empty or spaces
+                    continue;
+                }
+
                 string[] split = line.Split();
                 switch (split[0])
                 {
@@ -156,6 +162,11 @@ namespace Infinistack
                         // reverse the stack
                         stacks[stackNum] = new Stack<StackValue>(stacks[stackNum]);
 
+                        break;
+                    }
+                    case "#":
+                    {
+                        // the line is a comment, don't do anything
                         break;
                     }
                     default:
