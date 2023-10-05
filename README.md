@@ -16,3 +16,7 @@ Build the "Infinistack" solution. It's that simple.
 ### Building using .NET CLI
 
 `$ dotnet build`
+
+## Language Syntax
+
+See `SYNTAX.md`.
