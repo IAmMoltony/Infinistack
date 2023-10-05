@@ -1,6 +1,8 @@
 
 # Infinistack
 
+[![CodeFactor](https://www.codefactor.io/repository/github/iammoltony/infinistack/badge)](https://www.codefactor.io/repository/github/iammoltony/infinistack)
+
 Infinistack is a programming language where you have infinite stacks.
 
 ## Building
