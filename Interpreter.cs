@@ -169,6 +169,24 @@ namespace Infinistack
 
                         break;
                     }
+                    case "pop":
+                    {
+                        uint stackNum = 0;
+                        try
+                        {
+                            stackNum = Convert.ToUInt32(split[1]);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}"); // TODO replace these stpid trycatch stetements with TryParse and move all code that parses a number to a separate function
+                            return;
+                        }
+
+                        // pop stack
+                        stacks[stackNum].Pop();
+
+                        break;
+                    }
                     default:
                     {
                         // invalid keyword
