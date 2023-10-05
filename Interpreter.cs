@@ -140,6 +140,24 @@ namespace Infinistack
                         }
                         break;
                     }
+                    case "reverse":
+                    {
+                        uint stackNum = 0;
+                        try
+                        {
+                            stackNum = Convert.ToUInt32(split[1]);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}");
+                            return;
+                        }
+
+                        // reverse the stack
+                        stacks[stackNum] = new Stack<StackValue>(stacks[stackNum]);
+
+                        break;
+                    }
                     default:
                     {
                         // invalid keyword
