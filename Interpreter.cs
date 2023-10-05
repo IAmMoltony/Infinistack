@@ -57,17 +57,16 @@ namespace Infinistack
                         }
 
                         // get value
-                        StackValue val;
                         switch (split[2])
                         {
                             case "char":
                                 if (split[3].Length != 1)
                                 {
-                                    Console.WriteLine("Syntax error: a character value must be a single character on line " + lineNumber.ToString());
+                                    Console.WriteLine($"Syntax error: a character value must be a single character on line {lineNumber}");
                                     return;
                                 }
 
-                                val = new StackValue(split[3].ToCharArray()[0]);
+                                stacks[stackNum].Push(new StackValue(split[3].ToCharArray()[0]));
                                 break;
                             case "num":
                                 float numVal = 0;
@@ -81,15 +80,44 @@ namespace Infinistack
                                     return;
                                 }
 
-                                val = new StackValue(numVal);
+                                stacks[stackNum].Push(new StackValue(numVal));
+                                break;
+                            case "str":
+                                string rawString = "";
+                                for (int i = 3; i <= split.Length - 1; i++)
+                                {
+                                    rawString += split[i] + ' ';
+                                }
+                                rawString = rawString.Substring(0, rawString.Length - 1);
+
+                                if (string.IsNullOrEmpty(rawString))
+                                {
+                                    Console.WriteLine($"Syntax error: expected a string on line {lineNumber}");
+                                    return;
+                                }
+
+                                if (!(rawString[0] == '\"' && rawString[rawString.Length - 1] == '\"'))
+                                {
+                                    Console.WriteLine($"Syntax error: string must start and end with the \" character on line {lineNumber}");
+                                    return;
+                                }
+
+                                if (rawString.Length == 2)
+                                {
+                                    Console.WriteLine($"Syntax error: can't push an empty string on line {lineNumber}");
+                                    return;
+                                }
+
+                                string str = rawString.Substring(1, rawString.Length - 2);
+                                foreach (char ch in str)
+                                {
+                                    stacks[stackNum].Push(new StackValue(ch));
+                                }
                                 break;
                             default:
-                                Console.WriteLine("Syntax error: invalid stack value type " + split[2]);
+                                Console.WriteLine($"Syntax error: invalid stack value type `{split[2]}' on line {lineNumber}");
                                 return;
                         }
-
-                        stacks[stackNum].Push(val);
-
                         break;
                     }
                     case "print":
