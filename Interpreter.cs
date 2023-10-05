@@ -18,6 +18,11 @@ namespace Infinistack
                     // line is empty or spaces
                     continue;
                 }
+                if (line[0] == '#')
+                {
+                    // comment detected. dont do anything
+                    continue;
+                }
 
                 string[] split = line.Split();
                 switch (split[0])
@@ -162,11 +167,6 @@ namespace Infinistack
                         // reverse the stack
                         stacks[stackNum] = new Stack<StackValue>(stacks[stackNum]);
 
-                        break;
-                    }
-                    case "#":
-                    {
-                        // the line is a comment, don't do anything
                         break;
                     }
                     default:
