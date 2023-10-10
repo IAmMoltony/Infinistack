@@ -1,6 +1,8 @@
 
 # Infinistack Syntax
 
+## Keywords
+
 `req <number>` Request a stack to be created. Stack number must not be negative.
 `push <stack number> <data type> <value>` Push a value onto a stack.
 `print <stack number>` Print the contents of a stack.
@@ -11,4 +13,31 @@
 `clean <stack number>` Remove all values from a stack.
 `wipe <stack number>` Same as `clean`.
 
-Infinistack also supports comments. To make a comment, start the lne with a `#` and write whatever you want after the `#`. Also, this means that it's possible to make an executable script using Infinistack.
+## Comments
+
+Infinistack supports comments. To make a comment, start the lne with a `#` and write whatever you want after the `#`. Also, this means that it's possible to make an executable script using Infinistack.
+
+```
+# This is a comment.
+req 0
+
+push 0 num 2
+# the line above pushes 2 to the 0th stack!
+```
+
+## Escape Sequences
+
+Strings support escape sequences: `\n` and `\\`.
+
+```
+# push "Hello" with a newline
+push 0 str "Hello\n"
+
+# push "Hi\"
+push 0 str "Hi\\"
+
+# this will also work
+push 0 str "Hi\"
+```
+
+`\\` is only useful if you want to have a backslash right before `n`.
