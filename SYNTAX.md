@@ -52,7 +52,7 @@ push 0 str "a string of characters"
 
 ### Numbers
 
-Numbers are regular floating point numbers.
+Numbers are floating point numbers.
 
 ```
 push 0 num 34.2
