@@ -285,12 +285,76 @@ namespace Infinistack
                         // type checking
                         if (a.type != StackValue.Type.Number || b.type != StackValue.Type.Number)
                         {
-                            Console.WriteLine($"Runtime error: one of the addition operands is not a number on line {lineNumber}");
+                            Console.WriteLine($"Runtime error: one of the subtraction operands is not a number on line {lineNumber}");
                             return;
                         }
 
                         // subtract
                         float result = b.numValue - a.numValue;
+
+                        // put value on the stack
+                        stacks[stackNum].Push(new StackValue(result));
+
+                        break;
+                    }
+                    case "mul":
+                    {
+                        StackValue a = new StackValue(0), b = new StackValue(0);
+
+                        uint stackNum = 0;
+                        if (!uint.TryParse(split[1], out stackNum))
+                        {
+                            Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}");
+                            return;
+                        }
+
+                        if (!stacks[stackNum].TryPop(out a) || !stacks[stackNum].TryPop(out b))
+                        {
+                            Console.WriteLine($"Runtime error: no value on top of stack {stackNum} on line {lineNumber}");
+                            return;
+                        }
+
+                        // type checking
+                        if (a.type != StackValue.Type.Number || b.type != StackValue.Type.Number)
+                        {
+                            Console.WriteLine($"Runtime error: one of the multiplication operands is not a number on line {lineNumber}");
+                            return;
+                        }
+
+                        // multiply
+                        float result = a.numValue * b.numValue;
+
+                        // put value on the stack
+                        stacks[stackNum].Push(new StackValue(result));
+
+                        break;
+                    }
+                    case "div":
+                    {
+                        StackValue a = new StackValue(0), b = new StackValue(0);
+
+                        uint stackNum = 0;
+                        if (!uint.TryParse(split[1], out stackNum))
+                        {
+                            Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}");
+                            return;
+                        }
+
+                        if (!stacks[stackNum].TryPop(out a) || !stacks[stackNum].TryPop(out b))
+                        {
+                            Console.WriteLine($"Runtime error: no value on top of stack {stackNum} on line {lineNumber}");
+                            return;
+                        }
+
+                        // type checking
+                        if (a.type != StackValue.Type.Number || b.type != StackValue.Type.Number)
+                        {
+                            Console.WriteLine($"Runtime error: one of the division operands is not a number on line {lineNumber}");
+                            return;
+                        }
+
+                        // divide
+                        float result = b.numValue / a.numValue;
 
                         // put value on the stack
                         stacks[stackNum].Push(new StackValue(result));

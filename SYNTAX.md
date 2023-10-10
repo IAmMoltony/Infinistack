@@ -9,7 +9,9 @@
 `reverse <stack number>` Reverse a stack.
 `pop <stack number>` Pop the last value from a stack.
 `add <stack number>` Add last 2 numbers on a stack and push the result onto the stack.
-`sub <stack number>` Substract the last number from the second-to-last number on a stack an push the result onto the stack.
+`sub <stack number>` Subtract the last number from the second-to-last number on a stack and push the result onto the stack.
+`mul <stack number>` Multiply last 2 numbers on a stack and push the result onto the stack.
+`div <stack number.` Divide the last number by the second-to-last number on a stack and push the result onto the stack.
 `clean <stack number>` Remove all values from a stack.
 `wipe <stack number>` Same as `clean`.
 
