@@ -92,6 +92,47 @@ namespace Infinistack
 
                                 stacks[stackNum].Push(new StackValue(numVal));
                                 break;
+                            case "charcode":
+                                string ccString = split[3];
+                                if (ccString.StartsWith("0x"))
+                                {
+                                    // cc is short for charcode
+
+                                    byte cc = 0;
+                                    if (!byte.TryParse(split[3].Substring(2), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out cc))
+                                    {
+                                        Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}");
+                                        return;
+                                    }
+
+                                    char ch = (char)cc;
+                                    stacks[stackNum].Push(new StackValue(ch));
+                                }
+                                else if (ccString.StartsWith("U+"))
+                                {
+                                    ushort cc = 0;
+                                    if (!ushort.TryParse(split[3].Substring(2), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out cc))
+                                    {
+                                        Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}");
+                                        return;
+                                    }
+
+                                    char ch = (char)cc;
+                                    stacks[stackNum].Push(new StackValue(ch));
+                                }
+                                else
+                                {
+                                    byte cc = 0;
+                                    if (!byte.TryParse(split[3], out cc))
+                                    {
+                                        Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}");
+                                        return;
+                                    }
+
+                                    char ch = (char)cc;
+                                    stacks[stackNum].Push(new StackValue(ch));
+                                }
+                                break;
                             case "str":
                                 string rawString = "";
 

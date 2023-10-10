@@ -2,7 +2,10 @@
 req 0
 
 # Push hello world string onto the 0th stack
-push 0 str "Hello, world!\n"
+push 0 str "Hello, world!"
+
+# Push a newline onto the 0th stack (20 is ascii newline)
+push 0 charcode 20
 
 # Reverse the 0th stack
 reverse 0

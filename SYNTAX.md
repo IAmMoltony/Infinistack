@@ -37,10 +37,14 @@ Chars are Unicode characters. They can be pushed onto a stack in multiple ways.
 # push a normal printable character
 push 0 char a
 
-# push a character by its Unicode codepoint
-# you can also push ASCII code because ASCII
-# is a subset of Unicode.
-push 0 charcode 20
+# push an ASCII code to the stack
+push 0 char 20
+
+# push an ASCII code to the stack (with hex)
+push 0 char 0x0a
+
+# push a Unicode codepoint to the stack
+push 0 char U+03a3
 
 # push a string of characters
 push 0 str "a string of characters"

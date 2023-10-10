@@ -1,6 +1,7 @@
 # Test program, intended to test features of the language
 
 req 0
-push 0 str "a\\n"
-reverse 0
+push 0 charcode U+03a3
+push 0 charcode 63
+push 0 charcode 0x50
 print 0
