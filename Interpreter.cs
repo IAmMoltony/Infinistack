@@ -30,17 +30,16 @@ namespace Infinistack
                     case "req":
                     {
                         // request a stack
+
+                        // parse the stack number
                         uint stackNum;
-                        try
+                        if (!uint.TryParse(split[1], out stackNum))
                         {
-                            stackNum = Convert.ToUInt32(split[1]);
-                        }
-                        catch (FormatException)
-                        {
-                            Console.WriteLine("Syntax error: invalid number on line " + Convert.ToString(lineNumber));
+                            Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}");
                             return;
                         }
 
+                        // create the stack
                         stacks[stackNum] = new Stack<StackValue>();
                         break;
                     }
@@ -95,31 +94,38 @@ namespace Infinistack
                                 break;
                             case "str":
                                 string rawString = "";
+
                                 for (int i = 3; i <= split.Length - 1; i++)
                                 {
                                     rawString += split[i] + ' ';
                                 }
                                 rawString = rawString.Substring(0, rawString.Length - 1);
 
+                                // no string lol
                                 if (string.IsNullOrEmpty(rawString))
                                 {
                                     Console.WriteLine($"Syntax error: expected a string on line {lineNumber}");
                                     return;
                                 }
 
+                                // string is not surrounded by quotes
                                 if (!(rawString[0] == '\"' && rawString[rawString.Length - 1] == '\"'))
                                 {
                                     Console.WriteLine($"Syntax error: string must start and end with the \" character on line {lineNumber}");
                                     return;
                                 }
 
+                                // string is just 2 quotes
                                 if (rawString.Length == 2)
                                 {
                                     Console.WriteLine($"Syntax error: can't push an empty string on line {lineNumber}");
                                     return;
                                 }
 
-                                string str = rawString.Substring(1, rawString.Length - 2);
+                                // TODO check if there is a possibility that " will crash the interpreter
+
+                                string str = rawString.Substring(1, rawString.Length - 2).Replace("\\n", "\n").Replace("\\\\", "\\");
+
                                 foreach (char ch in str)
                                 {
                                     stacks[stackNum].Push(new StackValue(ch));
@@ -178,7 +184,7 @@ namespace Infinistack
                         }
                         catch (FormatException)
                         {
-                            Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}"); // TODO replace these stpid trycatch stetements with TryParse and move all code that parses a number to a separate function
+                            Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}");
                             return;
                         }
 
@@ -268,7 +274,7 @@ namespace Infinistack
                     default:
                     {
                         // invalid keyword
-                        Console.WriteLine("Syntax error: invalid keyword " + split[0] + " on line " + Convert.ToString(lineNumber));
+                        Console.WriteLine($"Syntax error: invalid keyword {split[0]} on line {lineNumber}");
                         return;
                     }
                 }
