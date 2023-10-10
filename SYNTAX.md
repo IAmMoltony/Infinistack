@@ -24,20 +24,3 @@ req 0
 push 0 num 2
 # the line above pushes 2 to the 0th stack!
 ```
-
-## Escape Sequences
-
-Strings support escape sequences: `\n` and `\\`.
-
-```
-# push "Hello" with a newline
-push 0 str "Hello\n"
-
-# push "Hi\"
-push 0 str "Hi\\"
-
-# this will also work
-push 0 str "Hi\"
-```
-
-`\\` is only useful if you want to have a backslash right before `n`.

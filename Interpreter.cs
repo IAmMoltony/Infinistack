@@ -124,7 +124,7 @@ namespace Infinistack
 
                                 // TODO check if there is a possibility that " will crash the interpreter
 
-                                string str = rawString.Substring(1, rawString.Length - 2).Replace("\\n", "\n").Replace("\\\\", "\\");
+                                string str = rawString.Substring(1, rawString.Length - 2);
 
                                 foreach (char ch in str)
                                 {

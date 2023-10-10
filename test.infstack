@@ -1,7 +1,6 @@
 # Test program, intended to test features of the language
 
 req 0
-push 0 str "asdf"
-wipe 0
-push 0 str "qwer"
+push 0 str "a\\n"
+reverse 0
 print 0
