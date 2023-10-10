@@ -43,6 +43,23 @@ namespace Infinistack
                         stacks[stackNum] = new Stack<StackValue>();
                         break;
                     }
+                    case "unreq":
+                    {
+                        // un-request a stack
+                        
+                        // parse the stack number
+                        uint stackNum;
+                        if (!uint.TryParse(split[1], out stackNum))
+                        {
+                            Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}");
+                            return;
+                        }
+
+                        // delete the stack
+                        stacks.Remove(stackNum);
+
+                        break;
+                    }
                     case "push":
                     {
                         // push on a stack
