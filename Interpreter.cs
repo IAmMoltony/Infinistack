@@ -6,6 +6,8 @@ namespace Infinistack
 {
     public class Interpreter
     {
+        public static bool runSuccess { get; private set; }
+
         public static void Run(string[] lines)
         {
             Dictionary<uint, Stack<StackValue>> stacks = new Dictionary<uint, Stack<StackValue>>();
@@ -403,6 +405,8 @@ namespace Infinistack
 
                 lineNumber++;
             }
+
+            runSuccess = true;
         }
     }
 }

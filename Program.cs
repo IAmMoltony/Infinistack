@@ -5,13 +5,13 @@ namespace Infinistack
 {
     class MainClass
     {
-        public static void Main(string[] args)
+        public static int Main(string[] args)
         {
             // check if a program file was supplied
             if (args.Length < 1)
             {
                 Console.WriteLine("Please specify a file");
-                return;
+                return 1;
             }
 
             string filePath = args[0];
@@ -25,11 +25,13 @@ namespace Infinistack
             catch (Exception exc)
             {
                 Console.WriteLine("Error reading file: " + exc.Message);
-                return;
+                return 1;
             }
 
             // give the file to the interpreter
             Interpreter.Run(fileData);
+
+            return Interpreter.runSuccess ? 0 : 1;
         }
     }
 }
