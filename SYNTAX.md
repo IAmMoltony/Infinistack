@@ -8,5 +8,7 @@
 `pop <stack number>` Pop the last value from a stack.
 `add <stack number>` Add last 2 numbers on a stack and push the result onto the stack.
 `sub <stack number>` Substract the last number from the second-to-last number on a stack an push the result onto the stack.
+`clean <stack number>` Remove all values from a stack.
+`wipe <stack number>` Same as `clean`.
 
 Infinistack also supports comments. To make a comment, start the lne with a `#` and write whatever you want after the `#`. Also, this means that it's possible to make an executable script using Infinistack.

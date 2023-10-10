@@ -250,6 +250,21 @@ namespace Infinistack
 
                         break;
                     }
+                    case "clear":
+                    case "wipe":
+                    {
+                        uint stackNum = 0;
+                        if (!uint.TryParse(split[1], out stackNum))
+                        {
+                            Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}");
+                            return;
+                        }
+
+                        // wipe the stack clean
+                        stacks[stackNum].Clear();
+
+                        break;
+                    }
                     default:
                     {
                         // invalid keyword
