@@ -1,0 +1,11 @@
+# Request a stack
+req 0
+
+# Push hello world string onto the 0th stack
+push 0 str "Hello, world!"
+
+# Reverse the 0th stack
+reverse 0
+
+# Print the contents of the 0th stack (in our case "Hello, world!")
+print 0
