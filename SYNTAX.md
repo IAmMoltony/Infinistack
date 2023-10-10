@@ -24,3 +24,33 @@ req 0
 push 0 num 2
 # the line above pushes 2 to the 0th stack!
 ```
+
+## Stack Values
+
+Stack values have a type (char or number) and they are a value of that type.
+
+### Characters (chars)
+
+Chars are Unicode characters. They can be pushed onto a stack in multiple ways.
+
+```
+# push a normal printable character
+push 0 char a
+
+# push a character by its Unicode codepoint
+# you can also push ASCII code because ASCII
+# is a subset of Unicode.
+push 0 charcode 20
+
+# push a string of characters
+push 0 str "a string of characters"
+```
+
+### Numbers
+
+Numbers are regular floating point numbers.
+
+```
+push 0 num 34.2
+push 0 num 42
+```
