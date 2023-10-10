@@ -2,7 +2,7 @@
 req 0
 
 # Push hello world string onto the 0th stack
-push 0 str "Hello, world!"
+push 0 str "Hello, world!\n"
 
 # Reverse the 0th stack
 reverse 0
