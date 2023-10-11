@@ -27,7 +27,15 @@ namespace Infinistack
 
         public override string ToString()
         {
-            return "Type: " + type.ToString() + " char value: '" + charValue.ToString() + "' num value: " + numValue.ToString();
+            switch (type)
+            {
+                case Type.Char:
+                    return $"[char {charValue}]";
+                case Type.Number:
+                    return $"[number {numValue}]";
+                default:
+                    return "[unknown type]";
+            }
         }
 
         public void Write()

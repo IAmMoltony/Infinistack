@@ -2,21 +2,8 @@
 
 req 0
 req 1
-req 2
 
-push 0 str "What's your name?? "
-reverse 0
-print 0
-
-push 2 str "Hello "
-reverse 2
-
-input 1 str
-reverse 1
-
-print 2
-print 1
-wipe 0
-push 0 charcode 0x0a
-push 0 char !
-print 0
+push 0 char H
+push 1 num 3.1415
+push 0 str "Wilber"
+stackdump

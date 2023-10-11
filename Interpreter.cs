@@ -1,12 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 
 namespace Infinistack
 {
     public class Interpreter
     {
         public static bool runSuccess { get; private set; }
+
+        private static void DumpStacks(ref Dictionary<uint, Stack<StackValue>> stacks)
+        {
+            using (StreamWriter writer = new StreamWriter("StackDump.txt"))
+            {
+                foreach (KeyValuePair<uint, Stack<StackValue>> kvp in stacks)
+                {
+                    writer.WriteLine($"Stack #{kvp.Key}");
+                    StackValue[] values = stacks[kvp.Key].ToArray();
+                    foreach (StackValue val in values)
+                    {
+                        writer.WriteLine($"{val}");
+                    }
+                    writer.WriteLine();
+                }
+            }
+        }
 
         public static void Run(string[] lines)
         {
@@ -443,6 +461,11 @@ namespace Infinistack
                             }
                         }
 
+                        break;
+                    }
+                    case "stackdump":
+                    {
+                        DumpStacks(ref stacks);
                         break;
                     }
                     default:

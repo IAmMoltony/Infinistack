@@ -15,6 +15,7 @@
 `clean <stack number>` Remove all values from a stack.
 `wipe <stack number>` Same as `clean`.
 `input <stack number> <str/num>` Push a string or a number from user's input onto a stack.
+`stackdump` Create a dump of every stack. This can be useful for debugging.
 
 ## Comments
 
