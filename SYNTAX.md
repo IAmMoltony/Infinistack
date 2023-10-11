@@ -1,7 +1,7 @@
 
 # Infinistack Syntax
 
-## Keywords
+## Commands
 
 `req <number>` Request a stack to be created. Stack number must not be negative.
 `push <stack number> <data type> <value>` Push a value onto a stack.
