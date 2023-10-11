@@ -182,6 +182,13 @@ namespace Infinistack
                                     return;
                                 }
 
+                                // string is just literally a quote
+                                if (rawString.Length == 1)
+                                {
+                                    Console.WriteLine($"Syntax error: string can't just be a single '\"' on line {lineNumber}");
+                                    return;
+                                }
+
                                 // TODO check if there is a possibility that " will crash the interpreter
 
                                 string str = rawString.Substring(1, rawString.Length - 2);

@@ -4,4 +4,5 @@ req 0
 push 0 charcode U+03a3
 push 0 charcode 63
 push 0 charcode 0x50
+push 0 str "
 print 0
