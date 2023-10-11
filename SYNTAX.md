@@ -14,6 +14,7 @@
 `div <stack number.` Divide the last number by the second-to-last number on a stack and push the result onto the stack.
 `clean <stack number>` Remove all values from a stack.
 `wipe <stack number>` Same as `clean`.
+`input <stack number> <str/num>` Push a string or a number from user's input onto a stack.
 
 ## Comments
 

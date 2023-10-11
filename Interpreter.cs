@@ -402,6 +402,49 @@ namespace Infinistack
 
                         break;
                     }
+                    case "input":
+                    {
+                        uint stackNum = 0;
+                        if (!uint.TryParse(split[1], out stackNum))
+                        {
+                            Console.WriteLine($"Syntax error: invalid number format on line {lineNumber}");
+                            return;
+                        }
+
+                        // read string
+                        string s = Console.ReadLine();
+
+                        switch (split[2])
+                        {
+                            case "str":
+                            {
+                                foreach (char ch in s)
+                                {
+                                    stacks[stackNum].Push(new StackValue(ch));
+                                }
+                                break;
+                            }
+                            case "num":
+                            {
+                                float number = 0;
+                                if (!float.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out number))
+                                {
+                                    Console.WriteLine($"Runtime error: invalid float number inputted by user on line {lineNumber}");
+                                    return;
+                                }
+
+                                stacks[stackNum].Push(new StackValue(number));
+                                break;
+                            }
+                            default:
+                            {
+                                Console.WriteLine($"Syntax error: invalid input datatype on line {lineNumber}");
+                                return;
+                            }
+                        }
+
+                        break;
+                    }
                     default:
                     {
                         // invalid keyword
