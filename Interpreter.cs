@@ -81,7 +81,7 @@ namespace Infinistack
                         Stack<StackValue> stack;
                         if (!stacks.TryGetValue(stackNum, out stack))
                         {
-                            Console.WriteLine("Runtime error: stack " + Convert.ToString(stackNum) + "on line " + Convert.ToString(lineNumber));
+                            Console.WriteLine($"Runtime error: stack {stackNum} does not exist on line {lineNumber}");
                             return;
                         }
 
@@ -199,7 +199,7 @@ namespace Infinistack
                                 }
                                 break;
                             default:
-                                Console.WriteLine($"Syntax error: invalid stack value type `{split[2]}' on line {lineNumber}");
+                                Console.WriteLine($"Syntax error: invalid stack value type `{split[2]}' on line {lineNumber} (expected `char', `charcode', `num' or `str')");
                                 return;
                         }
                         break;
@@ -438,7 +438,7 @@ namespace Infinistack
                             }
                             default:
                             {
-                                Console.WriteLine($"Syntax error: invalid input datatype on line {lineNumber}");
+                                Console.WriteLine($"Syntax error: invalid input datatype on line {lineNumber} (expected `str' or `num')");
                                 return;
                             }
                         }
