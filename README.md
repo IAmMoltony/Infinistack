@@ -3,6 +3,10 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/iammoltony/infinistack/badge)](https://www.codefactor.io/repository/github/iammoltony/infinistack)
 
+<p align="center">
+    <img src="https://github.com/IAmMoltony/Infinistack/blob/master/infstack.png" alt="Infinistack logo">
+</p>
+
 Infinistack is a programming language where you have infinite stacks.
 
 ## Building
