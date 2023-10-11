@@ -12,8 +12,7 @@
 `sub <stack number>` Subtract the last number from the second-to-last number on a stack and push the result onto the stack.
 `mul <stack number>` Multiply last 2 numbers on a stack and push the result onto the stack.
 `div <stack number.` Divide the last number by the second-to-last number on a stack and push the result onto the stack.
-`clean <stack number>` Remove all values from a stack.
-`wipe <stack number>` Same as `clean`.
+`clean <stack number>` or `wipe <stack number>` Remove all values from a stack.
 `input <stack number> <str/num>` Push a string or a number from user's input onto a stack.
 `stackdump` Create a dump of every stack. This can be useful for debugging.
 `quit` or `exit` Quit the program.
