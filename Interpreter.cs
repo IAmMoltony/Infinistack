@@ -468,6 +468,11 @@ namespace Infinistack
                         DumpStacks(ref stacks);
                         break;
                     }
+                    case "quit":
+                    case "exit":
+                    {
+                        goto interpreterEnd;
+                    }
                     default:
                     {
                         // invalid keyword
@@ -479,6 +484,7 @@ namespace Infinistack
                 lineNumber++;
             }
 
+interpreterEnd:
             runSuccess = true;
         }
     }
