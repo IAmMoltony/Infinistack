@@ -24,3 +24,7 @@ Build the "Infinistack" solution. It's that simple.
 ## Language Syntax
 
 See `SYNTAX.md`.
+
+## Contributing
+
+All kinds of contributions are welcome. If you find a bug, please create an issue. If you want to contribute code, fork the repo and make a pull request.
